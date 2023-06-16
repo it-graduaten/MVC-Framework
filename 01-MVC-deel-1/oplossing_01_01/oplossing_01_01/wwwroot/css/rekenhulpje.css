@@ -4,3 +4,10 @@
     float: left;
     margin: 10px;
 }
+
+.berekening-kaartje-klein {
+    width: 18rem !important;
+    height: 20rem !important;
+    float: left;
+    margin: 10px;
+}

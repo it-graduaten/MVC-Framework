@@ -1,3 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Maaltafel van x";
+    int tafel = (int) ViewData["Tafel"];
+    ViewData["Title"] = $"Maaltafel van {tafel}";
 }
+
+<h2>De maaltafel van @tafel</h2>
+<table class="table table-dark table-striped">
+    @for (int i = 1; i <= 10; i++)
+    {
+        <tr>
+            <td>
+                @{ int resultaat = tafel * i; }
+                @tafel x @i = @resultaat
+            </td>
+        </tr>
+    }
+</table>

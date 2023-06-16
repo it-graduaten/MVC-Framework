@@ -1,3 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Machtstafel van x";
+    int tafel = (int)ViewData["Tafel"];
+    ViewData["Title"] = $"Machtstafel van {tafel}";
 }
+
+<h2>De machtstafel van @tafel</h2>
+<table class="table table-dark table-striped">
+    @for (double i = 1; i <= 10; i++)
+    {
+        <tr>
+            <td>
+                @{
+                    double resultaat = Math.Pow(tafel, i);
+                }
+                @tafel ^ @i = @resultaat
+            </td>
+        </tr>
+    }
+</table>
