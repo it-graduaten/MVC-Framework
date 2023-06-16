@@ -14,6 +14,16 @@ namespace oplossing_01_00.Controllers
             return "Dit is de 'Welkom' pagina!";
         }
 
+        public string Bestelling(int id)
+        {
+            return $"Dit zijn de details van bestelling met id {id}";
+        }
+
+        public string Boodschap(string voornaam, string boodschap)
+        {
+            return $"Boodschap van {voornaam}: {boodschap}";
+        }
+
         public IActionResult HelloRazor()
         {
             ViewData["Title"] = "HelloRazor";
