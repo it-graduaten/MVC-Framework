@@ -1,0 +1,99 @@
+﻿@model _09_01_InterimKantoor.ViewModels.JobDetailViewModel
+@{
+	ViewData["Title"] = "Details";
+}
+
+<div class="row">
+    <div class="col m-5">
+        <h2 style="color: deepskyblue !important;">@ViewData["Title"] @Model.Job.Omschrijving</h2>
+
+        
+         <div class="accordion" id="accordionDetails">
+             <div class="card">
+                <div class="card-header" id="headingDetails">
+                    <h3 class="mb-0" style="color: deepskyblue !important;">
+                            Informatie
+                    </h3>
+                </div>
+
+                <div id="collapseInfo" class="collapse show" aria-labelledby="headingInfo" data-parent="#accordionDetails">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>Jobomschrijving</td>
+                                <td>@Model.Job.Omschrijving</td>
+                            </tr>
+                            <tr>
+                                <td>Startdatum</td>
+                                <td>@Model.Job.StartDatum.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            <tr>
+                                <td>Einddatum</td>
+                                <td>@Model.Job.EindDatum.ToString("dd/MM/yyyy")</td>
+                            </tr>
+                            <tr>
+                                <td>Locatie</td>
+                                <td>@Model.Job.Locatie</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingExtra">
+                    <h3 class="mb-0" style="color: deepskyblue">
+                            Extra gegevens
+                    </h3>
+                </div>
+
+                <div id="collapseExtra" class="collapse show" aria-labelledby="headingExtra" data-parent="#accordionDetails">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <tr>
+                                @if (@Model.Job.IsWerkschoenen)
+                                {
+                                    <td>Werkschoenen: Vereist</td>
+                                }
+                                @if (@Model.Job.IsBadge)
+                                {
+                                    <td>Badge: Vereist</td>
+                                }
+                                @if (@Model.Job.IsKleding)
+                                {
+                                    <td>Werkkleding: Vereist</td>
+                                }
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingKlanten">
+                    <h3 class="mb-0" style="color: deepskyblue">
+                        Klanten
+                    </h3>
+                </div>
+
+                <div id="collapseKlanten" class="collapse show" aria-labelledby="headingKlanten" data-parent="#accordionDetails">
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                                @foreach (var item in Model.Job.KlantJobs)
+                                {
+                                <tr> <td>@item.Klant.Naam @item.Klant.Voornaam </td></tr>
+                                }
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (this.User.Identity != null && this.User.Identity.IsAuthenticated)
+{
+    <a asp-action="Edit" asp-route-id="@Model.Job.Id" class="btn btn-primary">Pas de vacature aan</a>
+    <a asp-action="Index" class="btn btn-primary">Terug</a>
+}

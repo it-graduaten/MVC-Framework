@@ -1,0 +1,86 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.klant-select option[selected] {
+    background-color: blue;
+    color: white;
+}
+
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    overflow: auto;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.HC {
+    border-collapse: separate;
+    border-spacing: 10px 10px;
+}
+
+/* Primary color instellen*/
+.bg-primary {
+    background-color: lightskyblue !important;
+}
+
+/* Link teksten vet maken */
+a.nav-link {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: lightskyblue
+}
+/* Tekstkleur van navbar brand/tekst wit maken */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: white;
+}
+
+/* Tekstkleur van navbar links wit maken */
+.navbar-custom .navbar-nav .nav-link {
+    color: white;
+}
+
+/* Tekstkleur van navbar links (bij active/hover) roze maken */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: pink;
+}
+
+/* Hamburger icoon van toggler wit maken */
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* Rand rond hamburger icoon van toggler wit maken */
+.custom-toggler.navbar-toggler {
+    border-color: white;
+}
+
+.shop-card {
+    width: 18rem !important;
+    height: 34rem !important;
+    float: left;
+}
